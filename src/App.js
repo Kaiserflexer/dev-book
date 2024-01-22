@@ -1,56 +1,31 @@
-import React from 'react';
-import { Sandpack, SandpackProvider, SandpackReactContext, SandpackLayout, SandpackStack, CodeEditor, SandpackPreview } from "@codesandbox/sandpack-react";
-import { monokaiPro } from "@codesandbox/sandpack-themes";
+// App.js
+import React, { useState, useEffect } from 'react';
+import PlaceholderPage from './PlaceholderPage';
+
 const App = () => {
-  const files = {}
-  
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Здесь вы можете выполнить асинхронные операции загрузки данных
+    // Например, с помощью fetch или других запросов
+    // После завершения загрузки данных установите setIsLoading(false)
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   return (
-     
-    
-    <SandpackProvider
-      files={files} 
-      template="react"
-      theme={monokaiPro} 
-      
-    >
-      <SandpackReactContext>
-        {({ files, updateFile }) => {
-          const fileListValues = Object.values(files);
-          const fileListKeys = Object.keys(files);
-
-          return (
-            <SandpackLayout>
-              <SandpackStack style={{ padding: "10px 0", height: "900px" }}>
-                <CodeEditor
-                  code={fileListValues[0].code}
-                  filePath={fileListKeys[0]}
-                  onCodeUpdate={(newCode) =>
-                    updateFile(fileListKeys[0], newCode)
-                  }
-                  showTabs
-                />
-              </SandpackStack>
-
-              <SandpackStack style={{ padding: "10px 0", height: "900px"}}>
-                <CodeEditor
-                  code={fileListValues[1].code}
-                  filePath={fileListKeys[1]}
-                  onCodeUpdate={(newCode) =>
-                    updateFile(fileListKeys[1], newCode)
-                  }
-                  showTabs
-                  
-                />
-              </SandpackStack>
-    
-              <SandpackPreview style={{ height: "900px"}} />
-            </SandpackLayout>
-          );
-        }}
-      </SandpackReactContext>
-    </SandpackProvider>
-    
-  )  
-}
+    <div>
+      {isLoading ? (
+        <PlaceholderPage />
+      ) : (
+        // Вставьте ваш основной контент здесь
+        <div>
+          <h1>Your Main Content Goes Here</h1>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default App;
