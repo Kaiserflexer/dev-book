@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .parallax-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-4HTsNCiMxXToL6YgYfoKCCL_2PxVqUI0reZKlKWdclIoMlC2y-w38kv5TVxKxdVF3Xk&usqp=CAU') center/cover fixed no-repeat;
+  }
+  
+  .content {
+    z-index: 1;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  p {
+    font-size: 1.2em;
+  }
+  
